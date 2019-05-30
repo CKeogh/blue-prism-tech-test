@@ -1,0 +1,44 @@
+$blue: #5F758E;
+$grey: #BDBBB6;
+$orange: #DD7230;
+$border: solid 2px grey;
+
+* {
+  font-family: 'Work Sans', sans-serif;
+}
+
+.App {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-areas: 'sidebar main-content';
+  height: 100vh;
+}
+
+.sidebar {
+  margin: 10px;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  border-right: $border;
+  transition: all 0.5s;
+}
+
+.main-content {
+  margin: 10px;
+  grid-area: main-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-card {
+  background-color: $grey;
+  border-bottom: $border;
+  border-right: $border;
+  border-radius: 10px 30px;
+  width: 80%;
+  margin: 20px;
+  height: 150px;
+}
