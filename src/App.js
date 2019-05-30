@@ -22,6 +22,22 @@ class App extends React.Component {
         priority: 0,
         status: 'unassigned',
         progress: 0,
+      },
+      {
+        title: 'Play mariokart',
+        desc: 'baggsy bowser',
+        workers: 0,
+        priority: 0,
+        status: 'unassigned',
+        progress: 0,
+      },
+      {
+        title: 'Shoot some hoops',
+        desc: 'because everyone loves basketball',
+        workers: 0,
+        priority: 0,
+        status: 'unassigned',
+        progress: 0,
       }
     ],
     showSidebar: true

@@ -50,7 +50,7 @@ $border-soft: solid 0.5px grey;
   height: 150px;
   display: grid;
   grid-template-columns: 1fr 180px;
-  grid-template-areas: 'task-text task-worker-data';
+  grid-template-areas: 'task-text task-display';
 
   .task-text {
     grid-area: task-text;
@@ -71,8 +71,10 @@ $border-soft: solid 0.5px grey;
   }
 
   .task-worker-display {
+    transition: all 0.5s;
+    grid-area: task-display;
+    position: relative;
     border-left: $border-soft;
-
 
     .workers-assigned {
       margin: 10px;
@@ -89,7 +91,18 @@ $border-soft: solid 0.5px grey;
       margin: 10px;
     }
 
+    .task-status {
+      margin: 5px;
+      padding: 10px;
+      border-top: $border-soft
+    }
+
     .play-button {
+      background-color: white;
+      color: rgb(0, 158, 79);
+      position: absolute;
+      top: 50px;
+      right: 163px;
       font-size: 2em;
     }
 
@@ -99,4 +112,13 @@ $border-soft: solid 0.5px grey;
 .star-icon {
   color: rgb(255, 166, 0);
   font-size: 1.5em;
+}
+
+.menu-option {
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.menu-option:hover {
+  font-weight: bold;
 }
