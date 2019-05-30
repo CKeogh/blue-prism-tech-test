@@ -1,7 +1,8 @@
 $blue: #5F758E;
 $grey: #BDBBB6;
-$orange: #DD7230;
-$border: solid 2px grey;
+$orange: hsl(23, 72%, 53%);
+$border: solid 1px grey;
+$border-soft: solid 0.5px grey;
 
 * {
   font-family: 'Work Sans', sans-serif;
@@ -27,6 +28,14 @@ $border: solid 2px grey;
 .main-content {
   margin: 10px;
   grid-area: main-content;
+}
+
+.header {
+  padding: 10px;
+  border-bottom: $border;
+}
+
+.task-list {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,11 +43,60 @@ $border: solid 2px grey;
 }
 
 .task-card {
-  background-color: $grey;
-  border-bottom: $border;
-  border-right: $border;
+  border: $border;
   border-radius: 10px 30px;
   width: 80%;
   margin: 20px;
   height: 150px;
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  grid-template-areas: 'task-text task-worker-data';
+
+  .task-text {
+    grid-area: task-text;
+    text-align: left;
+
+    .task-header {
+      margin: 10px;
+      padding: 4px;
+      font-size: 1.5em;
+      border-bottom: $border-soft;
+    }
+
+    .task-desc {
+      margin: 10px;
+      padding: 4px;
+      font-size: 1em;
+    }
+  }
+
+  .task-worker-display {
+    border-left: $border-soft;
+
+
+    .workers-assigned {
+      margin: 10px;
+      font-size: 15px;
+      font-weight: normal;
+    }
+
+    .worker-count {
+      margin: 10px;
+      font-size: 20px;
+    }
+
+    .priority-display {
+      margin: 10px;
+    }
+
+    .play-button {
+      font-size: 2em;
+    }
+
+  }
+}
+
+.star-icon {
+  color: rgb(255, 166, 0);
+  font-size: 1.5em;
 }

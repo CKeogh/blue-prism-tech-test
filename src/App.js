@@ -1,24 +1,29 @@
 import React from 'react';
 import './App.scss';
 import Sidebar from './components/Sidebar';
-import TaskCard from './components/TaskCard';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Sidebar />
-
-//       <div className="main-content">
-
-//       </div>
-//     </div>
-//   );
-// }
+import TaskList from './components/TaskList';
 
 class App extends React.Component {
 
   state = {
-    tasks: [1, 2, 3, 4],
+    tasks: [
+      {
+        title: 'Buy Coffee Beans',
+        desc: 'hot lava java',
+        workers: 0,
+        priority: 0,
+        status: 'unassigned',
+        progress: 0,
+      },
+      {
+        title: 'Email Everyone',
+        desc: 'just to say hi yno',
+        workers: 0,
+        priority: 0,
+        status: 'unassigned',
+        progress: 0,
+      }
+    ],
     showSidebar: true
   }
 
@@ -31,9 +36,7 @@ class App extends React.Component {
             <h1 className="header">Tasks</h1>
           </header>
           <button onClick={this.handleClick} >show/hide</button>
-          {this.state.tasks.map(task => {
-            return <TaskCard key={task} />
-          })}
+          <TaskList tasks={this.state.tasks} changePriority={this.changePriority} />
         </div>
       </div>
     );
@@ -42,6 +45,14 @@ class App extends React.Component {
   handleClick = () => {
     this.setState({
       showSidebar: !this.state.showSidebar
+    })
+  }
+
+  changePriority = (e, amount, taskId) => {
+    e.preventDefault();
+    this.setState(prevState => {
+      prevState.tasks[taskId].priority = amount;
+      return { tasks: prevState.tasks }
     })
   }
 
