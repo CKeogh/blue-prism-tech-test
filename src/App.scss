@@ -101,7 +101,7 @@ $border-soft: solid 0.5px grey;
       background-color: white;
       color: rgb(0, 158, 79);
       position: absolute;
-      top: 50px;
+      top: 60px;
       right: 163px;
       font-size: 2em;
     }
@@ -121,4 +121,19 @@ $border-soft: solid 0.5px grey;
 
 .menu-option:hover {
   font-weight: bold;
+}
+
+.progress-bar {
+  margin: 10px;
+  width: 80%;
+  height: 30px;
+  border: $border;
+  border-radius: 5px;
+}
+
+.progress-complete {
+  margin: 0;
+  height: 100%;
+  border-radius: 5px;
+  background-color: $orange;
 }

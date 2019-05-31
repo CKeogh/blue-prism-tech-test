@@ -52,7 +52,7 @@ class App extends React.Component {
             <h1 className="header">Tasks</h1>
           </header>
           <button onClick={this.handleClick} >show/hide</button>
-          <TaskList tasks={this.state.tasks} changePriority={this.changePriority} />
+          <TaskList tasks={this.state.tasks} changePriority={this.changePriority} handleStatusChange={this.handleStatusChange} />
         </div>
       </div>
     );
@@ -68,6 +68,25 @@ class App extends React.Component {
     e.preventDefault();
     this.setState(prevState => {
       prevState.tasks[taskId].priority = amount;
+      return { tasks: prevState.tasks }
+    })
+  }
+
+  handleStatusChange = (taskId, status) => {
+    this.setState((prevState) => {
+      const currentTask = prevState.tasks[taskId];
+      currentTask.status = status;
+
+      if (currentTask.priority === 1) {
+        currentTask.workers = 6
+      } else if (currentTask.priority === 2) {
+        currentTask.workers = 12
+      } else if (currentTask.priority === 3) {
+        currentTask.workers = 25
+      } else {
+        currentTask.workers = 0
+      }
+      currentTask.progress = 30;
       return { tasks: prevState.tasks }
     })
   }
