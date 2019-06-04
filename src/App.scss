@@ -16,7 +16,8 @@ $border-soft: solid 0.5px grey;
   height: 100vh;
 }
 
-.sidebar {
+
+%sidebar {
   margin: 10px;
   width: 250px;
   height: 100vh;
@@ -25,9 +26,39 @@ $border-soft: solid 0.5px grey;
   transition: all 0.5s;
 }
 
+.sidebar-big {
+  @extend %sidebar;
+}
+
+.sidebar-small {
+  @extend %sidebar;
+  display: none;
+}
+
 .main-content {
   margin: 10px;
   grid-area: main-content;
+}
+
+@media only screen and (max-width: 950px) {
+
+  .App {
+    grid-template-areas: 'main-content main-content';
+  }
+
+  .sidebar-big {
+    display: none;
+  }
+
+  .sidebar-small {
+    display: block;
+    background-color: white;
+    position: fixed;
+  }
+}
+
+.search-icon {
+  margin: 5px;
 }
 
 .header {
@@ -144,6 +175,12 @@ $border-soft: solid 0.5px grey;
       cursor: pointer;
       font-weight: bold;
     }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .task-card {
+    height: 250px;
   }
 }
 

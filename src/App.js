@@ -40,13 +40,14 @@ class App extends React.Component {
         progress: 0,
       }
     ],
-    showSidebar: true
+    showSidebar: false
   }
 
   render() {
     return (
       <div className="App">
-        <Sidebar show={this.state.showSidebar} />
+        <Sidebar className="sidebar-big" show={true} />
+        <Sidebar className="sidebar-small" show={this.state.showSidebar} />
         <div className="main-content">
           <header>
             <h1 className="header">Tasks</h1>
@@ -86,7 +87,7 @@ class App extends React.Component {
       } else {
         currentTask.workers = 0
       }
-      currentTask.progress = 30;
+      currentTask.progress = 60;
       return { tasks: prevState.tasks }
     })
   }
