@@ -18,7 +18,7 @@ const PriorityDisplay = ({ priority, taskId, className, changePriority, toggleMe
             })}
             {empty.map((_, i) => {
                 return <span key={i} onClick={(e) => {
-                    changePriority(e, i + 1, taskId)
+                    changePriority(e, filled.length + i + 1, taskId)
                     if (toggleMenu) toggleMenu('display')
                     if (handleStatusChange) {
                         handleStatusChange(taskId, 'running');
