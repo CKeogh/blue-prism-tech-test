@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PriorityDisplay = ({ priority, taskId, className, changePriority, toggleMenu, handleStatusChange }) => {
+const PriorityDisplay = ({ priority, taskId, className, changePriority, toggleMenu, handleStatusChange, toggleProgressbar }) => {
 
     const filled = new Array(priority).fill('x')
     const empty = new Array(3 - priority).fill('x')
@@ -20,7 +20,10 @@ const PriorityDisplay = ({ priority, taskId, className, changePriority, toggleMe
                 return <span key={i} onClick={(e) => {
                     changePriority(e, i + 1, taskId)
                     if (toggleMenu) toggleMenu('display')
-                    if (handleStatusChange) handleStatusChange(taskId, 'running')
+                    if (handleStatusChange) {
+                        handleStatusChange(taskId, 'running');
+                        toggleProgressbar(true);
+                    }
                 }} className="star-icon far fa-star" />
             })}
         </div>

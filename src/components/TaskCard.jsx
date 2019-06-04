@@ -7,7 +7,8 @@ import Progressbar from './ProgressBar';
 class TaskCard extends React.Component {
 
     state = {
-        view: 'display'
+        view: 'display',
+        showProgress: false,
     }
 
     render() {
@@ -20,6 +21,7 @@ class TaskCard extends React.Component {
                     <Progressbar
                         progress={task.progress}
                         className="progress-bar"
+                        showProgress={this.state.showProgress}
                     />
                 </div>
                 <TaskWorkerDisplay
@@ -39,7 +41,8 @@ class TaskCard extends React.Component {
                     changePriority={changePriority}
                     view={this.state.view}
                     toggleMenu={this.toggleMenu}
-                    handleStatusChange={handleStatusChange} />
+                    handleStatusChange={handleStatusChange}
+                    toggleProgressbar={this.toggleProgressbar} />
             </div>
         )
     }
@@ -47,6 +50,12 @@ class TaskCard extends React.Component {
     toggleMenu = (newView) => {
         this.setState({
             view: newView
+        })
+    }
+
+    toggleProgressbar = (isVisible) => {
+        this.setState({
+            showProgress: isVisible
         })
     }
 }

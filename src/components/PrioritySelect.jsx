@@ -2,7 +2,7 @@ import React from 'react';
 import PriorityDisplay from './PriorityDisplay';
 import ExitButton from './ExitButton';
 
-const PrioritySelect = ({ className, view, toggleMenu, priority, taskId, changePriority, handleStatusChange }) => {
+const PrioritySelect = ({ className, view, toggleMenu, priority, taskId, changePriority, handleStatusChange, toggleProgressbar }) => {
     return (
         <div className={className} style={{
             opacity: view === 'prioritySelect' ? '1' : '0',
@@ -16,7 +16,8 @@ const PrioritySelect = ({ className, view, toggleMenu, priority, taskId, changeP
                 taskId={taskId}
                 changePriority={changePriority}
                 toggleMenu={toggleMenu}
-                handleStatusChange={handleStatusChange} />
+                handleStatusChange={handleStatusChange}
+                toggleProgressbar={toggleProgressbar} />
         </div>
     )
 }
