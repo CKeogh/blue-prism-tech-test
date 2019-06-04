@@ -9,37 +9,29 @@ class App extends React.Component {
   state = {
     tasks: [
       {
-        title: 'Buy Coffee Beans',
-        desc: 'hot lava java',
+        title: 'Order Coffee Beans',
+        desc: 'Process description',
         workers: 0,
         priority: 0,
         status: 'unassigned',
         progress: 0,
       },
       {
-        title: 'Email Everyone',
-        desc: 'just to say hi yno',
+        title: 'Order Coffee Beans',
+        desc: 'Process description',
         workers: 0,
         priority: 0,
         status: 'unassigned',
         progress: 0,
       },
       {
-        title: 'Play mariokart',
-        desc: 'baggsy bowser',
+        title: 'Order Coffee Beans',
+        desc: 'Process description',
         workers: 0,
         priority: 0,
         status: 'unassigned',
         progress: 0,
       },
-      {
-        title: 'Shoot some hoops',
-        desc: 'because everyone loves basketball',
-        workers: 0,
-        priority: 0,
-        status: 'unassigned',
-        progress: 0,
-      }
     ],
     showSidebar: false,
     showModal: false,
@@ -48,16 +40,28 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Sidebar className="sidebar-big" show={true} toggleShowModal={this.toggleShowModal} />
-        <Sidebar className="sidebar-small" show={this.state.showSidebar} toggleShowModal={this.toggleShowModal} />
+        <Sidebar
+          className="sidebar-big"
+          show={true}
+          toggleShowModal={this.toggleShowModal} />
+        <Sidebar
+          className="sidebar-small"
+          show={this.state.showSidebar}
+          toggleShowModal={this.toggleShowModal} />
         <div className="main-content">
           <header>
             <h1 className="header">Tasks</h1>
           </header>
           <i onClick={this.toggleSidebar} className="fas fa-bars sidebar-toggle"></i>
-          <TaskList tasks={this.state.tasks} changePriority={this.changePriority} handleStatusChange={this.handleStatusChange} />
+          <TaskList
+            tasks={this.state.tasks}
+            changePriority={this.changePriority}
+            handleStatusChange={this.handleStatusChange} />
         </div>
-        <AddTaskModal className="add-task-modal" showModal={this.state.showModal} />
+        <AddTaskModal
+          className="add-task-modal"
+          showModal={this.state.showModal}
+          handleNewTask={this.handleNewTask} />
       </div>
     );
   }
@@ -99,6 +103,24 @@ class App extends React.Component {
     this.setState({
       showModal: !this.state.showModal
     })
+  }
+
+  handleNewTask = (title, desc) => {
+    const newTask = {
+      title,
+      desc,
+      workers: 0,
+      priority: 0,
+      status: 'unassigned',
+      progress: 0,
+    }
+    if (title && desc) {
+      this.setState((prevState) => {
+        prevState.tasks.unshift(newTask)
+        return { tasks: prevState.tasks }
+      })
+      this.toggleShowModal()
+    }
   }
 
 }

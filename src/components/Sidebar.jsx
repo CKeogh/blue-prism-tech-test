@@ -9,8 +9,8 @@ const Sidebar = (props) => {
             <i className="fas fa-search search-icon"></i>
             <input type="text" placeholder="search" />
             <nav>
-                <p onClick={props.toggleShowModal} >Add task</p>
-                <p>Sort tasks</p>
+                <p onClick={props.toggleShowModal} className="menu-option" >Add task</p>
+                <p className="menu-option">Sort tasks</p>
             </nav>
         </div>
     )
