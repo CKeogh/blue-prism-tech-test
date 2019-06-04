@@ -52,14 +52,15 @@ class App extends React.Component {
           <header>
             <h1 className="header">Tasks</h1>
           </header>
-          <button onClick={this.handleClick} >show/hide</button>
+          <i onClick={this.toggleSidebar} className="fas fa-bars sidebar-toggle"></i>
+          {/* <button onClick={this.handleClick} >show/hide</button> */}
           <TaskList tasks={this.state.tasks} changePriority={this.changePriority} handleStatusChange={this.handleStatusChange} />
         </div>
       </div>
     );
   }
 
-  handleClick = () => {
+  toggleSidebar = () => {
     this.setState({
       showSidebar: !this.state.showSidebar
     })

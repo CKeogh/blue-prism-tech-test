@@ -40,10 +40,25 @@ $border-soft: solid 0.5px grey;
   grid-area: main-content;
 }
 
+.sidebar-toggle {
+  position: fixed;
+  top: 14px;
+  left: 15px;
+  visibility: hidden;
+}
+
+.sidebar-toggle:hover {
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 950px) {
 
   .App {
     grid-template-areas: 'main-content main-content';
+  }
+
+  .sidebar-toggle {
+    visibility: visible;
   }
 
   .sidebar-big {
