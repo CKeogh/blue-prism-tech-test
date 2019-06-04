@@ -42,6 +42,14 @@ $border-soft: solid 0.5px grey;
   align-items: center;
 }
 
+.priority-display {
+  margin: 10px;
+}
+
+.priority-display:hover {
+  cursor: pointer;
+}
+
 .task-card {
   border: $border;
   border-radius: 10px 30px;
@@ -70,11 +78,15 @@ $border-soft: solid 0.5px grey;
     }
   }
 
-  .task-worker-display {
+  %shared-display {
     transition: all 0.5s;
     grid-area: task-display;
     position: relative;
     border-left: $border-soft;
+  }
+
+  .task-worker-display {
+    @extend %shared-display;
 
     .workers-assigned {
       margin: 10px;
@@ -85,10 +97,6 @@ $border-soft: solid 0.5px grey;
     .worker-count {
       margin: 10px;
       font-size: 20px;
-    }
-
-    .priority-display {
-      margin: 10px;
     }
 
     .task-status {
@@ -107,7 +115,38 @@ $border-soft: solid 0.5px grey;
     }
 
   }
+
+  .task-menu {
+    @extend %shared-display;
+  
+    .exit-button {
+      position: absolute;
+      left: 5px;
+      top: 5px;
+    }
+  
+    .exit-button:hover {
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+
+  .priority-select {
+    @extend %shared-display;
+
+    .exit-button {
+      position: absolute;
+      left: 5px;
+      top: 5px;
+    }
+
+    .exit-button:hover {
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
 }
+
 
 .star-icon {
   color: rgb(255, 166, 0);
@@ -128,12 +167,12 @@ $border-soft: solid 0.5px grey;
   width: 80%;
   height: 30px;
   border: $border;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
 .progress-complete {
   margin: 0;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 20px;
   background-color: $orange;
 }

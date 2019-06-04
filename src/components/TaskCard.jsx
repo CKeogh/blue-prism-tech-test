@@ -29,11 +29,11 @@ class TaskCard extends React.Component {
                     className="task-worker-display"
                     changePriority={changePriority}
                     toggleMenu={this.toggleMenu} />
-                <TaskMenu className="task-worker-display"
+                <TaskMenu className="task-menu"
                     view={this.state.view}
                     toggleMenu={this.toggleMenu} />
                 <PrioritySelect
-                    className="task-worker-display"
+                    className="priority-select"
                     priority={task.priority}
                     taskId={taskId}
                     changePriority={changePriority}
