@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 import Sidebar from './components/Sidebar';
 import TaskList from './components/TaskList';
+import AddTaskModal from './components/AddTaskModal';
 
 class App extends React.Component {
 
@@ -40,22 +41,23 @@ class App extends React.Component {
         progress: 0,
       }
     ],
-    showSidebar: false
+    showSidebar: false,
+    showModal: false,
   }
 
   render() {
     return (
       <div className="App">
-        <Sidebar className="sidebar-big" show={true} />
-        <Sidebar className="sidebar-small" show={this.state.showSidebar} />
+        <Sidebar className="sidebar-big" show={true} toggleShowModal={this.toggleShowModal} />
+        <Sidebar className="sidebar-small" show={this.state.showSidebar} toggleShowModal={this.toggleShowModal} />
         <div className="main-content">
           <header>
             <h1 className="header">Tasks</h1>
           </header>
           <i onClick={this.toggleSidebar} className="fas fa-bars sidebar-toggle"></i>
-          {/* <button onClick={this.handleClick} >show/hide</button> */}
           <TaskList tasks={this.state.tasks} changePriority={this.changePriority} handleStatusChange={this.handleStatusChange} />
         </div>
+        <AddTaskModal className="add-task-modal" showModal={this.state.showModal} />
       </div>
     );
   }
@@ -90,6 +92,12 @@ class App extends React.Component {
       }
       currentTask.progress = 60;
       return { tasks: prevState.tasks }
+    })
+  }
+
+  toggleShowModal = () => {
+    this.setState({
+      showModal: !this.state.showModal
     })
   }
 
