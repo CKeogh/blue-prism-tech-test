@@ -14,7 +14,7 @@ class AddTaskModal extends React.Component {
                 className={className}
                 style={{
                     opacity: showModal ? '1' : '0',
-                    transform: showModal ? 'translateY(0vw)' : 'translateY(-35vw)',
+                    transform: showModal ? 'translateY(0vw)' : 'translateY(-100vw)',
                 }}
             >
                 <ExitButton toggleMenu={toggleShowModal} />

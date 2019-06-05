@@ -83,6 +83,13 @@ $border-soft: solid 0.5px grey;
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .add-task-modal {
+    top: 30vh;
+    left: 15vw;
+  }
+}
+
 .sidebar-toggle {
   position: fixed;
   top: 14px;
