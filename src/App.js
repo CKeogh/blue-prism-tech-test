@@ -33,28 +33,33 @@ class App extends React.Component {
         progress: 0,
       },
     ],
+    filteredTasks: [],
     showSidebar: false,
     showModal: false,
   }
 
   render() {
+    const { tasks, filteredTasks } = this.state;
     return (
       <div className="App">
         <Sidebar
           className="sidebar-big"
           show={true}
-          toggleShowModal={this.toggleShowModal} />
+          toggleShowModal={this.toggleShowModal}
+          filterTasks={this.filterTasks} />
         <Sidebar
           className="sidebar-small"
           show={this.state.showSidebar}
-          toggleShowModal={this.toggleShowModal} />
+          toggleShowModal={this.toggleShowModal}
+          filterTasks={this.filterTasks} />
+
         <div className="main-content">
           <header>
             <h1 className="header">Tasks</h1>
           </header>
           <i onClick={this.toggleSidebar} className="fas fa-bars sidebar-toggle"></i>
           <TaskList
-            tasks={this.state.tasks}
+            tasks={filteredTasks.length > 0 ? filteredTasks : tasks}
             changePriority={this.changePriority}
             handleStatusChange={this.handleStatusChange} />
         </div>
@@ -121,6 +126,19 @@ class App extends React.Component {
       })
       this.toggleShowModal()
     }
+  }
+
+  filterTasks = (e) => {
+    let { value } = e.target;
+    value = value.toLowerCase();
+    const filteredTasks = this.state.tasks.filter(task => {
+      if (task.title.toLowerCase().match(value) || task.desc.toLowerCase().match(value)) {
+        return task
+      }
+    })
+    this.setState({
+      filteredTasks: filteredTasks
+    })
   }
 
 }

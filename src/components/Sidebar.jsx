@@ -7,10 +7,9 @@ const Sidebar = (props) => {
             opacity: props.show ? '1' : '0'
         }} className={props.className} >
             <i className="fas fa-search search-icon"></i>
-            <input type="text" placeholder="search" />
+            <input type="text" placeholder="search" onChange={(e) => props.filterTasks(e)} />
             <nav>
                 <p onClick={props.toggleShowModal} className="menu-option" >Add task</p>
-                <p className="menu-option">Sort tasks</p>
             </nav>
         </div>
     )

@@ -15,7 +15,7 @@ class TaskCard extends React.Component {
         const { task, taskId, changePriority, handleStatusChange } = this.props;
         return (
             <div className="task-card" >
-                <div className="task-text" >
+                <section className="task-text" >
                     <h3 className="task-header" >{task.title}</h3>
                     <p className="task-desc" >{task.desc}</p>
                     <Progressbar
@@ -23,7 +23,7 @@ class TaskCard extends React.Component {
                         className="progress-bar"
                         showProgress={this.state.showProgress}
                     />
-                </div>
+                </section>
                 <TaskWorkerDisplay
                     task={task}
                     taskId={taskId}
