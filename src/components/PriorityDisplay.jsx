@@ -6,8 +6,6 @@ const PriorityDisplay = ({ priority, taskId, className, changePriority, toggleMe
     const empty = new Array(3 - priority).fill('x')
 
     return (
-        // TODO 
-        // MAKE CHANGE PRIORITY WORK PROPERLY
         <div className={className} >
             {filled.map((_, i) => {
                 return <span key={i} onClick={(e) => {
