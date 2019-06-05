@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ExitButton = ({ toggleMenu }) => {
+const ExitButton = ({ toggleMenu, className }) => {
     return (
         <i
             className="far fa-times-circle exit-button"

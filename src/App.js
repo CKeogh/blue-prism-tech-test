@@ -66,7 +66,8 @@ class App extends React.Component {
         <AddTaskModal
           className="add-task-modal"
           showModal={this.state.showModal}
-          handleNewTask={this.handleNewTask} />
+          handleNewTask={this.handleNewTask}
+          toggleShowModal={this.toggleShowModal} />
       </div>
     );
   }

@@ -57,6 +57,17 @@ $border-soft: solid 0.5px grey;
   padding: 10px;
   justify-content: center;
 
+  .exit-button {
+    position: relative;
+    left: 140px;
+    top: -30px;
+  }
+
+  .exit-button:hover {
+    cursor: pointer;
+    font-weight: bold;
+  }
+
   .submit-button {
     margin: 10px;
     width: 50%;
